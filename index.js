@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 
@@ -7,6 +8,9 @@ const app = express();
 app.use( express.json() );      
 // para recibir formularios
 app.use( express.urlencoded({ extended: false }) );  
+
+//acepta peticiones desde otras maquinas
+app.use( cors() );
 
 //asignamos un puerto
 const PORT = process.env.PORT || 3000;
